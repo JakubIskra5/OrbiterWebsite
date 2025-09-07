@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbiter - by Jakub Iskra</title>
+    <link rel="stylesheet" href="styleNewTemplate.css"/>
+</head>
+<body>
+    <section id="toolbox">
+        <div id="toHide">
+            <div id="goBackBox">
+                <p>Orbiter - by Jakub Iskra / version 1.0.0</p>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="toolboxText">
+                <p>Toolbox</p>
+            </div>
+            <div id="pagesBox">
+                <button id="page1Button" class="normalButton">1</button>
+                <button id="page2Button" class="normalButton">2</button>
+                <button id="page3Button" class="normalButton">3</button>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="toHidePage1">
+                <p id="canvasSizeText">Canvas Size:</p>
+                <div id="adjustCanvasSizeBox">
+                    <p>x:</p>
+                    <input type="number" placeholder="4000" value="4000" id="adjustCanvasSizeX">
+                    <p>y:</p>
+                    <input type="number" placeholder="4000" value="4000" id="adjustCanvasSizeY">
+                    <button id="buttonAdjustCanvasSize" class="normalButton">Apply</button>
+                </div>
+                <div class="toolboxLine"></div>
+            </div>
+        </div>
+        <div id="addCelestialBodyBox">
+            <button id="buttonAddCelestialBody" class="normalButton">Add Celestial Body</button>
+            <button id="hideTopButton" class="normalButton">
+                <img src="img/arrowUpSVG.svg" alt="arrowUp" id="arrowButtonIMG">
+            </button>
+        </div>
+        <div id="modalBehind"></div>
+        <div id="modalAddCelestialBodyBox">
+            <p id="modalHeader">Add Celestial Body</p>
+            <div id="modalCreatingCelestialBodyBox">
+                <div id="modalNameBox" class="modalBox">
+                    <p>Name: </p>
+                    <input type="text" placeholder="Planet Vegeta" id="inputName">
+                </div>
+                <div class="modalLine"></div>
+                <div id="modalSizeBox" class="modalBox">
+                    <p>Size: </p>
+                    <input type="number" placeholder="200" id="inputSize">
+                </div>
+                <div class="modalLine"></div>
+                <div id="modalColorBox" class="modalBox">
+                    <p>Color: </p>
+                    <input type="color" id="inputColor">
+                    <div class="break32"></div>
+                    <p>Random: </p>
+                    <input type="checkbox" id="checkRandomColor">
+                </div>
+                <div class="modalLine"></div>
+                <div id="modalPositionBox" class="modalBox">
+                    <p>Position: </p>
+                    <p>x: </p>
+                    <input type="number" placeholder="2000" id="inputPositionX">
+                    <p>y: </p>
+                    <input type="number" placeholder="2000" id="inputPositionY">
+                </div>
+                <div class="modalLine"></div>
+                <div id="modalMassBox" class="modalBox">
+                    <p>Mass: </p>
+                    <input type="number" placeholder="100" id="inputMass">
+                </div>
+                <div class="modalLine"></div>
+                <div id="modalSpeedBox" class="modalBox">
+                    <p>Velocity: </p>
+                    <p>vx: </p>
+                    <input type="number" placeholder="0" id="inputVelocityVX">
+                    <p>vy: </p>
+                    <input type="number" placeholder="0" id="inputVelocityVY">
+                </div>
+            </div>
+            <div id="modalButtonsBox">
+                <button id="buttonModalClose" class="normalButton">Close</button>
+                <button id="buttonModalAdd" class="normalButton">Add</button>
+            </div>
+        </div>
+        <div id="modalSave">
+            <p id="saveText">Save Template</p>
+            <div id="modalSaveNameBox">
+                <p>Name:</p>
+                <input type="text" id="inputSaveName" placeholder="My Template">
+            </div>
+            <p id="modalSaveDescription">Description:</p>
+            <textarea id="textareaSave" placeholder="My Template contains 4 different celestial bodies..."></textarea>
+            <div id="modalSaveButtonsBox">
+                <button id="buttonModalSaveClose" class="normalButton">Close</button>
+                <button id="buttonModalSaveSave" class="normalButton">Save</button>
+            </div>
+        </div>
+        <div id="celestialBodiesBox">
+        </div>
+        <section id="secondPage" style="display: none;">
+            <div id="trailVisBox" class="boxColumn">
+                <p>Trail Visibility:</p>
+                <input type="range" max="100" min="0" value="30" id="inputTrailVis">
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="trailAppBox" class="boxColumn">
+                <p>Trail Appearance:</p>
+                <label><input type="radio" name="trailApp" id="radioDraw" checked>Draw</label>
+                <label><input type="radio" name="trailApp" id="radioFade">Fade</label>
+                <div id="drawSizeBox">
+                    <p>Draw Size:</p>
+                    <input type="number" value="12" id="inputDrawSize">
+                    <button id="buttonDrawSize" class="normalButton">Apply</button>
+                </div>
+                <div id="fadeSpeedBox" style="display: none;">
+                    <p>Fading Speed:</p>
+                    <input type="number" value="100" id="inputFadeSpeed">
+                    <button id="buttonFadeSpeed" class="normalButton">Apply</button>
+                </div>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="onCollisionBox" class="boxColumn">
+                <p>On Collision:</p>
+                <label><input type="radio" name="onCollision" id="radioDoNothing" checked>Do nothing</label>
+                <label><input type="radio" name="onCollision" id="radioMerge">Merge</label>
+                <label><input type="radio" name="onCollision" id="radioDestroyBoth">Destroy both</label>
+                <label><input type="radio" name="onCollision" id="radioDestroyLess">Destroy the one with less mass</label>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="propertiesBox" class="boxColumn">
+                <p>Properties:</p>
+                <div>
+                    <p>Gravitational field strength:</p>
+                    <input type="number" value="1000" placeholder="1000" id="inputGStrength">
+                    <button id="buttonGStrength" class="normalButton">Apply</button>
+                </div>
+                <div>
+                    <p>Gravitational force softening:</p>
+                    <input type="number" value="100" placeholder="100" id="inputForceSoftening">
+                    <button id="buttonForceSoftening" class="normalButton">Apply</button>
+                </div>
+            </div>
+        </section>
+        <section id="thirdPage" style="display: none;">
+            <div id="displayBox" class="boxColumn">
+                <p>Display On Screen:</p>
+                <label><input type="checkbox" id="inputDisplayName">Name</label>
+                <label><input type="checkbox" id="inputDisplaySize">Size</label>
+                <label><input type="checkbox" id="inputDisplayMass">Mass</label>
+                <label><input type="checkbox" id="inputDisplayPositionX">Vertical Position</label>
+                <label><input type="checkbox" id="inputDisplayPositionY">Horizontal Position</label>
+                <label><input type="checkbox" id="inputDisplayVX">Vertical Velocity</label>
+                <label><input type="checkbox" id="inputDisplayVY">Horizontal Velocity</label>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="displayPositionBox" class="boxColumn">
+                <p>Display Position:</p>
+                <label><input type="radio" name="displayPosition" id="radioAbove">Above</label>
+                <label><input type="radio" name="displayPosition" id="radioCenter">Center</label>
+                <label><input type="radio" name="displayPosition" id="radioBelow" checked>Below</label>
+            </div>
+            <div class="toolboxLine"></div>
+            <div id="displayTextSizeBox" class="boxColumn">
+                <p>Text Size:</p>
+                <input type="range" max="100" min="0" value="25" id="inputTextSize">
+            </div>
+        </section>
+    </section>
+    <section id="canvasBoxColor">
+        <div id="startButtonBox">
+            <button id="startButton" class="normalButton">RESTART</button>
+            <button id="playButton" class="normalButton"><img src="img/playButton.svg" alt="playButton" id="ImgPlayButton"></button>
+        </div>
+        <div id="transformTextBox">
+            <p id="positionText">Position: x: 0 , y: 0</p>
+            <p id="scaleText">Scale: 1.00</p>
+        </div>
+        <p id="cursorPositionText">x: 0 , y: 0</p>
+        <section id="canvasBox">
+            <canvas id="trailCanvasBox" width="4000px" height="4000px"></canvas>
+        </section>
+    </section>
+<div id="transitionBox"></div>
+<script src="scriptNewTemplate.js"></script>
+</body>
+</html>
