@@ -1,0 +1,674 @@
+@font-face {
+  font-family: "BowlbyOneSC-Regular";
+  src: url(fonts/BowlbyOneSC-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Orbitron-VariableFont_wght";
+  src: url(fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+.toolboxLine{
+  width: 100%;
+  height: 4px;
+  background-color: #0b1f17;
+  margin: 12px auto;
+}
+
+.textCBClass{
+  color: white;
+  font-family: "BowlbyOneSC-Regular";
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 6px;
+}
+
+.modalBox{
+  display: flex;
+  flex-direction: row;
+  margin: 2% 10%;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modalBox > *{
+  margin: 6px;
+}
+
+.modalBox input{
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  width: 176px;
+}
+
+.modalLine{
+  width: 80%;
+  padding: 2px;
+  background-color: #0b1f17;
+  margin: 8px auto;
+}
+
+.CBflex, .CBflexButtons{
+  width: 100%;
+  display: flex;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  justify-content: left;
+  align-items: center;
+}
+
+.CBflex *, .CBflexButtons *{
+  margin: 8px
+}
+
+.CBflex input{
+  width: 25%;
+  height: 32px;
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "BowlbyOneSC-Regular";
+}
+
+.CBflex input{
+  width: 25%;
+  height: 32px;
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "BowlbyOneSC-Regular";
+}
+
+.CBflexButtons{
+  margin: auto;
+}
+
+.CBflexButtons button{
+  width: calc(30% - 16px);
+  height: 32px;
+  text-align: center;
+  color: white;
+  margin: auto;
+  padding: 0;
+  font-family: "Orbitron-VariableFont_wght";
+  font-weight: bold;
+  background-color: #1c4736;
+  border: 2px solid #235e46;
+  padding: 6px 6%;
+  border-radius: 12px;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.7);
+}
+
+.CBLine{
+  width: 95%;
+  padding: 2px;
+  background-color: #235e46;
+  margin: 24px auto;
+}
+
+.break32{
+  margin: 0 16px;
+}
+
+.displayClass{
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1rem;
+  margin: 0;
+}
+
+.displayName, .displaySize, .displayMass, .displayX, .displayY, .displayVX, .displayVY{
+  display: none;
+}
+
+.normalButton{
+  font-size: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: auto;
+  font-family: "Orbitron-VariableFont_wght";
+  font-weight: bold;
+  background-color: #1c4736;
+  border: 2px solid #235e46;
+  padding: 6px 16%;
+  border-radius: 12px;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.7);
+}
+
+.normalButton:hover, .CBflexButtons button:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  background-color: #225a44;
+  border: 2px solid #276b50;
+  cursor: pointer;
+}
+
+.boxColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+.boxColumn p{
+  text-align: center;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.boxColumn > label input{
+  accent-color: #276b50;
+  transform: scale(2.5);
+  margin: 16px;
+}
+
+input:focus, button:focus, textarea:focus {
+  outline: none;
+}
+
+body{
+  margin: 0;
+  overflow: hidden;
+  background-color: #0b1f17;
+}
+
+#toolbox{
+  position: fixed;
+  z-index: 10;
+  min-width: 250px;
+  width: 30vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #133024;
+  border-right: 6px solid #000000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#toolboxText{
+  width: 100%;
+  height: 100px;
+  display: flex;
+}
+
+#toolboxText p, #modalHeader, #saveText{
+  font-size: 3rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: auto;
+  padding: 0;
+  font-family: "BowlbyOneSC-Regular";
+  text-shadow: 0 6px 3px black;
+}
+
+#goBackBox, #addCelestialBodyBox{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  margin: 8px auto;
+}
+
+#goBackBox{
+  height: 40px!important;
+}
+
+#goBackBox p{
+  color: white;
+  text-align: center;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1.3rem;
+  margin: auto;
+}
+
+#buttonGoBack, #buttonSave{
+  font-size: 1rem!important;
+}
+
+#pagesBox{
+  display: flex;
+  justify-content: center;
+}
+
+#pagesBox button{
+  font-size: 1.2rem!important;
+  padding: 4px 4px!important;
+  width: 50px;
+  height: 50px;
+  margin: 0 8px 16px 8px!important;
+}
+
+#hideTopButton{
+  width: 70px;
+  height: 47px;
+  padding: 6px 0!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hideTopButton img{
+  margin: auto;
+}
+
+#adjustCanvasSizeBox{
+  width: 100%;
+  height: 32px;
+  display: flex;
+  margin: 8px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#adjustCanvasSizeBox > *{
+  margin: auto 4px;
+}
+
+#adjustCanvasSizeBox p{
+  text-align: center;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 0.8rem;
+  margin: auto;
+}
+
+#adjustCanvasSizeBox button{
+  font-size: 1rem!important;
+  padding: 4px 8px;
+}
+
+#adjustCanvasSizeBox input{
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "BowlbyOneSC-Regular";
+  width: 80%;
+}
+
+#canvasSizeText{
+  text-align: center;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+#buttonAddCelestialBody{
+  font-size: 1.5rem!important;
+}
+
+#modalAddCelestialBodyBox{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90vh;
+  height: 90vh;
+  background-color: #133024;
+  border: 2px solid #225a44;
+  box-shadow: 0 8px 16px black;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+#modalHeader{
+  width: 100%;
+  height: 10%;
+  margin: auto;
+}
+
+#modalCreatingCelestialBodyBox{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#modalButtonsBox{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalColorBox > input{
+  width: 250px;
+  height: 100%;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid #225a44;
+  margin: 0 0 0 8px;
+}
+
+#modalBehind{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.3); 
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 998; 
+}
+
+#celestialBodiesBox {
+  width: 100%;
+  height: calc(100vh - 506px);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 8px auto;
+  scrollbar-color: #0b1f17 #235e46;
+}
+
+#canvasBoxColor{
+  width: calc(70vw - 30px);
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background:
+  conic-gradient(from 90deg at 2px 2px,#0b1f17 90deg,#0e251c 0) 
+  0 0/25px 25px;
+  position: absolute;
+}
+
+#transformTextBox{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+  text-align: right;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1.5rem;
+  z-index: 5;
+}
+
+#transformTextBox p{
+  margin: 0;
+}
+
+#cursorPositionText{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 8px;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1rem;
+  z-index: 5;
+}
+
+#canvasBox{
+  width: 4000px;
+  height: 4000px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  border: 16px dotted #276b50;
+  transform-origin: 0 0; /* needed for the zoom in to zoom in where the cursor is located */
+  left: 16px;
+  z-index: 1;
+  top: 0;
+}
+
+#transitionBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d241a;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 1000;
+}
+
+#startButtonBox{
+  display: flex;
+  margin: 16px auto;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+#startButton{
+  z-index: 5;
+  font-size: 1.5rem;
+  padding: 6px 4%!important;
+  margin: 0!important;
+}
+
+#playButton{
+  z-index: 5;
+  height: 46px!important;
+  padding: 6px 2%!important;
+  margin: 0!important;
+}
+
+#trailCanvasBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+#inputTrailVis, #inputTextSize{
+  accent-color: #276b50;
+  border: none;
+  scale: 1.5;
+  width: 60%;
+  margin: 8px auto;
+}
+
+#trailAppBox > label, #onCollisionBox > label, #displayBox > label, #displayPositionBox > label{
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+#drawSizeBox, #fadeSpeedBox, #propertiesBox > div{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 8px 0;
+  align-items: center;
+}
+
+#drawSizeBox p, #fadeSpeedBox p{
+  font-size: 1.2rem;
+}
+
+#propertiesBox > div > p{
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+#drawSizeBox input, #fadeSpeedBox input, #propertiesBox > div > input{
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "BowlbyOneSC-Regular";
+  width: 30%;
+}
+
+#propertiesBox > div > input{
+  width: 20%!important;
+}
+
+#drawSizeBox button, #fadeSpeedBox button, #propertiesBox > div > button{
+  font-size: 1rem!important;
+  padding: 4px 8%!important;
+  margin: 0!important;
+}
+
+#checkRandomColor{
+  width: 50px!important;
+  color: #276b50;
+  accent-color: #276b50;
+}
+
+#modalSave{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90vw;
+  height: 70vh;
+  background-color: #133024;
+  border: 2px solid #225a44;
+  box-shadow: 0 8px 16px black;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+#modalSave > *{
+  margin: 16px 0;
+}
+
+#modalSaveNameBox{
+  display: flex;
+}
+
+#modalSaveNameBox > *{
+  margin: 0 8px;
+}
+
+#modalSaveDescription, #modalSave > div p{
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#modalSave > div input, #modalSave textarea{
+  background-color: #0b1f17;
+  border: 1px solid #225a44;
+  color: white;
+  font-family: "Orbitron-VariableFont_wght";
+  resize: none;
+  font-size: 1.2rem;
+  scrollbar-color: #0b1f17 #235e46;
+}
+
+#modalSave textarea{
+  width: 80%;
+  height: 40%;
+}
+
+#modalSaveButtonsBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalSaveButtonsBox *{
+  margin: 16px;
+}
+
+@media (max-width: 1620px){
+  #buttonAddCelestialBody{
+    padding: 6px 4%;
+  }
+  #transformTextBox p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1420px){
+  #propertiesBox > div > p{
+    font-size: 0.7rem;
+  }
+  #propertiesBox > div > button{
+    padding: 4px 6%!important;
+  }
+}
+
+@media (max-height: 940px){
+  .toolboxLine{
+    margin: 6px auto;
+  }
+  .modalBox{
+    font-size: 1.5rem;
+    margin: 1% 6%;
+  }
+  .modalBox input{
+    width: 150px;
+  }
+  #modalButtonsBox button{
+    padding: 6px 12%;
+  }
+  #celestialBodiesBox {
+  height: calc(100vh - 470px);
+  }
+}
+
+@media (max-height: 890px){
+  #toolboxText p{
+    font-size: 2rem;
+  }
+  #toolboxText{
+    height: 50px;
+  }
+  .boxColumn p{
+    font-size: 1rem;
+  }
+  .boxColumn > label input{
+  accent-color: #276b50;
+  transform: scale(2);
+  margin: 8px;
+  }
+  #pagesBox button{
+  font-size: 1rem!important;
+  padding: 2px 2px!important;
+  width: 40px;
+  height: 40px;
+  margin: 0 6px 8px 6px!important;
+  }
+  #celestialBodiesBox {
+  height: calc(100vh - 406px);
+  }
+}
